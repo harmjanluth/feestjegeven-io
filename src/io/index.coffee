@@ -13,9 +13,13 @@ exports.init = ( server ) ->
 		# Send ready trigger
 		socket.emit "ready", {}
 
+		socket.on "query", (q) ->
 
-	datastore.find [5.636742, 52.342202], ( data ) ->
+			datastore.find q, ( data ) ->
 
-		console.log "DSAASDADS", data
+				console.log "DSAASDADS", data
+
+
+	
 
 				

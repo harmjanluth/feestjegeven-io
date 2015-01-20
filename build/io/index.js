@@ -8,10 +8,12 @@ io = null;
 
 exports.init = function(server) {
   io = require("socket.io").listen(server);
-  io.on("connection", function(socket) {
-    return socket.emit("ready", {});
-  });
-  return datastore.find([5.636742, 52.342202], function(data) {
-    return console.log("DSAASDADS", data);
+  return io.on("connection", function(socket) {
+    socket.emit("ready", {});
+    return socket.on("query", function(q) {
+      return datastore.find(q, function(data) {
+        return console.log("DSAASDADS", data);
+      });
+    });
   });
 };

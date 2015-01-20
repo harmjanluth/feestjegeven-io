@@ -11,10 +11,12 @@ utils = roquire("utils");
 LocationModel = mongoose.model("Location", schemas.location);
 
 exports.find = function(latlng, callback) {
+  log.trace(latlng);
   return LocationModel.geoNear(latlng, {
-    maxDistance: 300,
+    maxDistance: 0.1 / 1000,
     spherical: true
   }, function(err, results, stats) {
-    return console.log(results);
+    console.log("AA", results);
+    return callback(results);
   });
 };
