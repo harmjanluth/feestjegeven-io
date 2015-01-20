@@ -1,0 +1,31 @@
+{
+  "name": "feestjegeven-io",
+  "version": "0.0.1",
+  "description": "NodeJS Express server for Feestjegeven-io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/harmjanluth/golden-slubmers.git"
+  },
+  "author": "Fris.io",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harmjanluth/golden-slubmers/issues"
+  },
+  "homepage": "https://github.com/harmjanluth/golden-slubmers",
+  "dependencies": {
+    "express": "^4.11.0",
+    "grunt-contrib-coffee": "^0.12.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "mongodb": "^1.4.28",
+    "mongoose": "^3.8.21",
+    "socket.io": "^1.2.1"
+  },
+  "devDependencies": {
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-nodemon": "^0.3.0"
+  }
+}
