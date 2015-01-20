@@ -2,10 +2,13 @@
 
 # Initialize
 connect 				= require( "./connect" )
-handle 					= require( "./models/handle" )
+location 				= require( "./models/location" )
 
-
-exports.find = ( query, callback ) ->
+exports.find = ( nid, callback ) ->
 
 	
+	location.find( nid, ( data ) ->
 
+		log.trace data
+
+	)

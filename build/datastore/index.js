@@ -1,7 +1,11 @@
-var connect, handle;
+var connect, location;
 
 connect = require("./connect");
 
-handle = require("./models/handle");
+location = require("./models/location");
 
-exports.find = function(query, callback) {};
+exports.find = function(nid, callback) {
+  return location.find(nid, function(data) {
+    return log.trace(data);
+  });
+};

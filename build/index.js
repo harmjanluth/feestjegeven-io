@@ -1,4 +1,4 @@
-var app, base_directory, io, server, utils;
+var app, base_directory, io, log4js, server, utils;
 
 global.roquire = function(name) {
   return require(__dirname + "/" + name);
@@ -12,6 +12,10 @@ io = require("./io").init(server);
 
 utils = require("./utils");
 
+log4js = require("log4js");
+
+global.log = log4js.getLogger();
+
 base_directory = process.env.IS_HEROKU ? process.cwd() + "/build" : __dirname;
 
 app.set("port", process.env.PORT || 5000).get("/", function(request, response) {
@@ -19,5 +23,5 @@ app.set("port", process.env.PORT || 5000).get("/", function(request, response) {
 });
 
 server.listen(app.get("port"), function() {
-  return console.log("STATUS [app running on :" + app.get("port") + "]");
+  return log.info("app running on :" + app.get("port"));
 });

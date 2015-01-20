@@ -9,7 +9,14 @@
 
 	socket.on( "ready" ,function( data ){
 		console.log("ready");
+
+		socket.on( "results" ,function( data ){
+			console.log(data);
+		});
+
 	});
+
+	
 
 
 </script>

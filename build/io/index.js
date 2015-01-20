@@ -8,7 +8,10 @@ io = null;
 
 exports.init = function(server) {
   io = require("socket.io").listen(server);
-  return io.on("connection", function(socket) {
+  io.on("connection", function(socket) {
     return socket.emit("ready", {});
+  });
+  return datastore.find([5.636742, 52.342202], function(data) {
+    return console.log("DSAASDADS", data);
   });
 };

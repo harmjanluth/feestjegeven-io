@@ -1,5 +1,5 @@
-mongoose 			= require("mongoose")
+mongoose 			= require( "mongoose" )
 Schema 				= mongoose.Schema
 
-handle 				= require("./handle")
-exports.handle 		= handle.call
+location 			= require( "./location" )
+exports.location 	= location.call

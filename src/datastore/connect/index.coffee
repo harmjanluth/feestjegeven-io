@@ -8,4 +8,7 @@ uristring 			= process.env.MONGOLAB_URI or "mongodb://localhost/golden-slumbers"
 # Setup mongo(ose) database
 mongoose.connect uristring, (error, response) ->
 	
-	console.log ( if error then  "STATUS [ERROR connecting to: " + uristring + ". " + error + "]" else "STATUS [datastore connected to: " + uristring + "]" )
+	if error
+		log.error "error connecting to: " + uristring + ": " + error
+	else
+		log.info "datastore connected to: " + uristring

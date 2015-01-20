@@ -7,5 +7,9 @@ mongo = require("mongodb");
 uristring = process.env.MONGOLAB_URI || "mongodb://localhost/golden-slumbers";
 
 mongoose.connect(uristring, function(error, response) {
-  return console.log((error ? "STATUS [ERROR connecting to: " + uristring + ". " + error + "]" : "STATUS [datastore connected to: " + uristring + "]"));
+  if (error) {
+    return log.error("error connecting to: " + uristring + ": " + error);
+  } else {
+    return log.info("datastore connected to: " + uristring);
+  }
 });

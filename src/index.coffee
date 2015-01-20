@@ -9,6 +9,10 @@ server				= require( "http" ).Server( app )
 # Global
 io 					= require( "./io" ).init( server )
 utils 				= require( "./utils" )
+
+log4js 				= require( "log4js" )
+global.log 			= log4js.getLogger()
+
 base_directory		= if process.env.IS_HEROKU then ( process.cwd() + "/build" ) else __dirname
 
 # Set port (heroku)
@@ -20,4 +24,4 @@ app
 # Serve app
 server.listen app.get( "port" ), ->
 	
-	console.log "STATUS [app running on :" + app.get( "port" ) + "]"
+	log.info "app running on :" + app.get( "port" )

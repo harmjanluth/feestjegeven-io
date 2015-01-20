@@ -1,9 +1,9 @@
-var Schema, handle, mongoose;
+var Schema, location, mongoose;
 
 mongoose = require("mongoose");
 
 Schema = mongoose.Schema;
 
-handle = require("./handle");
+location = require("./location");
 
-exports.handle = handle.call;
+exports.location = location.call;
