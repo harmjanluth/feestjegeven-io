@@ -9,8 +9,6 @@ exports.init = ( server ) ->
 
 	# Setup socket.io
 	io.on "connection", ( socket ) ->
-		
-		log.info "[socket.io intialized]", socket.id
-
+	
 		# Send ready trigger
 		socket.emit "ready", {}

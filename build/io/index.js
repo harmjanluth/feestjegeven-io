@@ -9,7 +9,6 @@ io = null;
 exports.init = function(server) {
   io = require("socket.io").listen(server);
   return io.on("connection", function(socket) {
-    log.info("[socket.io intialized]", socket.id);
     return socket.emit("ready", {});
   });
 };
