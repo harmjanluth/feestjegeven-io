@@ -7,13 +7,12 @@ utils 				= roquire( "utils" )
 LocationModel 		= mongoose.model "Location", schemas.location
 
 # Module
-exports.find = ( latlng, callback ) ->
+exports.find = ( query, callback ) ->
 
-	log.trace 	latlng
-
-	LocationModel.geoNear latlng,
-		maxDistance: 0.1 / 1000
-		spherical: true
+	LocationModel.geoNear query.latlng,
+		distanceMultiplier	: 6371
+		maxDistance 		: query.distance / 637.1
+		spherical			: true
 		, (err, results, stats) ->
-			console.log "AA", results
-			callback results
+			
+			callback( results )

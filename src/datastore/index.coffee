@@ -4,11 +4,11 @@
 connect 				= require( "./connect" )
 location 				= require( "./models/location" )
 
-exports.find = ( nid, callback ) ->
+exports.find = ( query, callback ) ->
 
 	
-	location.find( nid, ( data ) ->
+	location.find( query, ( result ) ->
 
-		log.trace data
+		callback( result )
 
 	)

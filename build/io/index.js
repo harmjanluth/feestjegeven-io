@@ -11,8 +11,9 @@ exports.init = function(server) {
   return io.on("connection", function(socket) {
     socket.emit("ready", {});
     return socket.on("query", function(q) {
-      return datastore.find(q, function(data) {
-        return console.log("DSAASDADS", data);
+      q.distance = q.distance || 1;
+      return datastore.find(q, function(result) {
+        return socket.emit("result", result);
       });
     });
   });

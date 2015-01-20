@@ -4,8 +4,8 @@ connect = require("./connect");
 
 location = require("./models/location");
 
-exports.find = function(nid, callback) {
-  return location.find(nid, function(data) {
-    return log.trace(data);
+exports.find = function(query, callback) {
+  return location.find(query, function(result) {
+    return callback(result);
   });
 };

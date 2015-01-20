@@ -46,7 +46,7 @@ function query() {
   var lat = place.geometry.location.lat();
   var lng = place.geometry.location.lng()
 
-  socket.emit("query", [lng,lat] );
+  socket.emit("query", {latlng:[lng,lat], distance: document.getElementById("distance").value} );
 
   
 }
@@ -58,7 +58,7 @@ function query() {
 	socket.on( "ready" ,function( data ){
 		console.log("ready");
 
-		socket.on( "results" ,function( data ){
+		socket.on( "result" ,function( data ){
 			console.log(data);
 		});
 
@@ -112,7 +112,8 @@ function query() {
   <body onload="initialize()">
     <div id="locationField">
       <input id="autocomplete" placeholder="Enter your address" type="text"></input>
+      
     </div>
-
+    	<input id="distance" type="text"></input>
 </body>
 </html>

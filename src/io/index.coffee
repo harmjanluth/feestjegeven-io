@@ -13,11 +13,15 @@ exports.init = ( server ) ->
 		# Send ready trigger
 		socket.emit "ready", {}
 
-		socket.on "query", (q) ->
+		socket.on "query", ( q ) ->
 
-			datastore.find q, ( data ) ->
+			q.distance = q.distance || 1
 
-				console.log "DSAASDADS", data
+			datastore.find q, ( result ) ->
+
+				socket.emit "result", result
+
+
 
 
 	
