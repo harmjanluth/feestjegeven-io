@@ -55,14 +55,27 @@ function query() {
 
 
 
-	socket.on( "ready" ,function( data ){
-		console.log("ready");
+  socket.on( "ready" ,function( data ){
+    
+    console.log("ready");
 
-		socket.on( "result" ,function( data ){
-			console.log(data);
-		});
+    socket.on( "result" ,function( data ){
 
-	});
+      document.getElementById("result").innerHTML = "Resultaat: <br/>";
+
+      for( var i =0; i <= data.length; i++ ) {
+
+        if( data[i] ) {
+          document.getElementById("result").innerHTML += "<p>" + data[i].obj.name + " | " + (  Math.floor( data[i].dis * 1000 ) ) + "meter <br/><p>";
+        }
+
+      }
+
+      console.log(data);
+
+    });
+
+  });
 
 
     </script>
@@ -114,6 +127,17 @@ function query() {
       <input id="autocomplete" placeholder="Enter your address" type="text"></input>
       
     </div>
-    	<input id="distance" type="text"></input>
+      <select id="distance">
+        <option value="5" checked>5 km</option>
+        <option value="25" checked>25 km</option>
+        <option value="50" checked>50 km</option>
+        <option value="100" checked>100 km</option>
+        <option value="500" checked>500 km</option>
+      </select>
+
+
+      <div id="result">
+        ...
+      </div>
 </body>
 </html>
