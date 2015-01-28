@@ -1,0 +1,95 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  margin: 0;
+  padding: 0; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: none; }
+
+q:before, q:after {
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f6f6f6 url("../img/party.jpg") 0 0 no-repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px; }
+
+input, select, textarea {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px; }
+
+header {
+  text-align: center;
+  width: 100%;
+  height: 157px;
+  /* http://www.colorzilla.com/gradient-editor/#9d2379+0,cf1d60+100&0.5+0,0.5+100;Custom */
+  background: -moz-linear-gradient(left, rgba(157, 35, 121, 0.8) 0%, rgba(207, 29, 96, 0.8) 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(157, 35, 121, 0.8)), color-stop(100%, rgba(207, 29, 96, 0.8)));
+  background: -webkit-linear-gradient(left, rgba(157, 35, 121, 0.8) 0%, rgba(207, 29, 96, 0.8) 100%);
+  background: -o-linear-gradient(left, rgba(157, 35, 121, 0.8) 0%, rgba(207, 29, 96, 0.8) 100%);
+  background: -ms-linear-gradient(left, rgba(157, 35, 121, 0.8) 0%, rgba(207, 29, 96, 0.8) 100%);
+  background: linear-gradient(to right, rgba(157, 35, 121, 0.8) 0%, rgba(207, 29, 96, 0.8) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc9d2379', endColorstr='#cccf1d60',GradientType=1 ); }
+  header img {
+    margin-top: 1.8rem; }
+
+textarea, input {
+  outline: none; }
+
+.page-content {
+  width: 100%;
+  padding: 1rem; }
+  .page-content h2 {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 1em;
+    display: block;
+    width: 100%;
+    text-align: center; }
+  .page-content .inner {
+    margin: -4rem 0 0 0;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px; }
+  .page-content select {
+    width: 100%; }
+  .page-content #places-autocomplete {
+    margin-bottom: 1em;
+    width: 100%;
+    padding: 0.5em; }
+
+#autocomplete {
+  width: 100%;
+  padding: 0.5rem; }
+
+#result p {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding: 20px; }
+#result img {
+  width: 100%; }
+
+/*# sourceMappingURL=main.css.map */

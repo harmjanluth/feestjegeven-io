@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+        <meta http-equiv="cleartype" content="on">
+
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/touch/apple-touch-icon-114x114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/touch/apple-touch-icon-72x72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="img/touch/apple-touch-icon-57x57-precomposed.png">
+        <link rel="shortcut icon" sizes="196x196" href="img/touch/touch-icon-196x196.png">
+        <link rel="shortcut icon" href="img/touch/apple-touch-icon.png">
+
+        <!-- Tile icon for Win8 (144x144 + tile color) -->
+        <meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png">
+        <meta name="msapplication-TileColor" content="#222222">
+
+        <link type="text/css" rel="stylesheet" href="css/main.css" />
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <!--
+        <meta name="mobile-web-app-capable" content="yes">
+        -->
+
+        <!-- For iOS web apps. Delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+        <!--
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="">
+        -->
+    </head>
+    
+     <body>
+
+  <header>
+      <img src="img/logo.svg" alt="feestjegeven.nl">
+  </header>
+
+  <section class="page-content">
+    <div class="inner">
+     
+      
+    <div id="locationField">
+      <input id="places-autocomplete" placeholder="Zoek feestlocatie in.." type="text"></input>
+    </div>
+
+    <button onclick="getLocation()">Gebruik mijn locatie</button>
+
+      <select id="distance">
+        <option value="5" checked>5 km</option>
+        <option value="25" checked>25 km</option>
+        <option value="50" checked>50 km</option>
+        <option value="100" checked>100 km</option>
+        <option value="500" checked>500 km</option>
+      </select>
+
+      <div id="result">
+        ...
+      </div>
+
+    </div>
+  </section>
+
+
+
+    <script>
+// This example displays an address form, using the autocomplete feature
+// of the Google Places API to help users fill in the information.
+
+
+
+
+function showPosition(position) {
+  
+  socket.emit("query", {latlng:[position.coords.longitude,position.coords.latitude], distance: document.getElementById("distance").value} );
+
+   var geocoder = new google.maps.Geocoder();
+
+   var locCurrent = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+
+            geocoder.geocode({ 'latLng': locCurrent }, function (results, status) {
+
+              document.getElementById("places-autocomplete").value = results[0]["formatted_address"];
+
+            });
+
+
+
+  
+}
+
+
+
+
+
+    </script>
+
+
+<script type="text/javascript" src="lib/require.js" data-main="js/app"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+{
+	"urls" : {
+		"base_path"   	: "feestjegeven/2015/feestjegeven-io/frontend/build",
+		"socket" 		: "http://localhost:5000"
+	}
+}
