@@ -13,8 +13,7 @@ exports.find = ( query, callback ) ->
 
 	# New filters
 	filters 					= {}
-
-	# Set pax
+	
 	if query.pax
 		filters.maximum_pax 	= $gte : query.pax
 		filters.minimum_pax 	= $lte : query.pax
@@ -22,14 +21,28 @@ exports.find = ( query, callback ) ->
 	if query.features
 		filters.features		= $all : query.features
 
-	# Execute query
-	LocationModel.geoNear query.latlng,
-		distanceMultiplier	: 6371
+	LocationModel.collection.geoNear(
+		query.latlng[0], 
+		query.latlng[1],
+		spherical 			: true
 		maxDistance 		: query.distance / 6371
-		spherical			: true
-		,
-		query :
-			filters
-		, (err, results, stats) ->
-			
+		distanceMultiplier	: 6371
+		query				: filters
+		, (err, docs) ->
+
+			if err
+				log.debug "[Error.. querying]", err
+			else
+				callback( docs )
+	)
+
+
+exports.get = ( alias, callback ) ->
+
+	if alias
+
+		LocationModel.findOne( alias : alias, (err, results ) ->
+
 			callback( results )
+
+		)

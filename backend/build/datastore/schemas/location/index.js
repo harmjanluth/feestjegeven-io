@@ -67,7 +67,7 @@ exports.call = new Schema({
   },
   loc: {
     type: [Number],
-    index: "2d",
+    index: "2dsphere",
     required: false
   },
   updated: {

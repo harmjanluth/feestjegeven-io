@@ -4,6 +4,9 @@ define(["socketio", "views", "json!config"], function(io, views, config) {
   module = {
     query: function(query) {
       return socket.emit("query", query);
+    },
+    getLocation: function(alias) {
+      return socket.emit("getLocation", alias);
     }
   };
   init = function(options) {
@@ -12,6 +15,7 @@ define(["socketio", "views", "json!config"], function(io, views, config) {
       return console.log("[socket initialized..]");
     });
     socket.on("result", function(data) {
+      console.log("RESULT", data);
       return views.showSearchResults(data);
     });
     return module;

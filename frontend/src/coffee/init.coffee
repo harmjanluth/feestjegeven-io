@@ -1,9 +1,5 @@
-define [ "json!config" ], ( config ) ->
+define [ "json!config", "models/location" ], ( config, location ) ->
 
-
-	console.log window.location.href
-	console.log config.urls.base_path
-	
 	path = window.location.pathname
 
 	# Check if we can abstract base_url
@@ -19,13 +15,18 @@ define [ "json!config" ], ( config ) ->
 		value = @ + ""
 		value.indexOf( str ) > -1
 
+	# Homepage
+	# 
 	if path is ( "" or "/" )
 
 		places = require( [ "places" ] )
 
+	# Detail location
+	# 
 	else if path.startsWith( "/feestlocatie:" )
 
-		alert 200
+		alias = path.split( "/feestlocatie:" ).pop()
+		location.get( alias )
 
 	else
 

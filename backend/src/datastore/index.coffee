@@ -12,3 +12,12 @@ exports.find = ( query, callback ) ->
 		callback( result )
 
 	)
+
+
+exports.getLocation = ( alias, callback ) ->
+
+	location.get( alias, ( result ) ->
+
+		callback( result )
+
+	)

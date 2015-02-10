@@ -9,3 +9,9 @@ exports.find = function(query, callback) {
     return callback(result);
   });
 };
+
+exports.getLocation = function(alias, callback) {
+  return location.get(alias, function(result) {
+    return callback(result);
+  });
+};

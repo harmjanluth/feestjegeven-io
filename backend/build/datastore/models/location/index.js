@@ -27,12 +27,26 @@ exports.find = function(query, callback) {
       $all: query.features
     };
   }
-  return LocationModel.geoNear(query.latlng, {
-    distanceMultiplier: 6371,
-    maxDistance: query.distance / 6371,
+  return LocationModel.collection.geoNear(query.latlng[0], query.latlng[1], {
     spherical: true,
+    maxDistance: query.distance / 6371,
+    distanceMultiplier: 6371,
     query: filters
-  }, function(err, results, stats) {
-    return callback(results);
+  }, function(err, docs) {
+    if (err) {
+      return log.debug("[Error.. querying]", err);
+    } else {
+      return callback(docs);
+    }
   });
+};
+
+exports.get = function(alias, callback) {
+  if (alias) {
+    return LocationModel.findOne({
+      alias: alias
+    }, function(err, results) {
+      return callback(results);
+    });
+  }
 };

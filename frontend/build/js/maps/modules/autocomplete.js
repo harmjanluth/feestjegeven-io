@@ -14,7 +14,7 @@ define(["gmaps", "socket"], function(gmaps, socket) {
         lng = place.geometry.location.lng();
         return socket.query({
           latlng: [lng, lat],
-          distance: 500
+          distance: document.getElementById("distance").value || 999
         });
       });
     }

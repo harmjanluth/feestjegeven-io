@@ -7,6 +7,10 @@ define [ "socketio", "views", "json!config" ] , ( io, views, config ) ->
 		query : ( query ) ->
 			socket.emit( "query", query )
 
+		getLocation : ( alias ) ->
+			socket.emit( "getLocation", alias )
+			
+
 	init = ( options ) ->
 		
 		socket = io.connect( config.urls.socket )
@@ -15,6 +19,8 @@ define [ "socketio", "views", "json!config" ] , ( io, views, config ) ->
 			console.log "[socket initialized..]"
 
 		socket.on "result", ( data ) ->
+
+			console.log "RESULT", data
 			
 			views.showSearchResults( data )
 

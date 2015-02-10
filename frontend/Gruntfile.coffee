@@ -22,8 +22,6 @@ module.exports = (grunt) ->
 			app:
 				files: [ '**/*.coffee', '**/*.sass', 'index.html' ]
 				tasks: [ 'coffee', 'sass', 'copy' ]
-				options:
-						livereload: true
 		copy:
 			main:
 				expand: true

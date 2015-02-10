@@ -17,7 +17,7 @@ define [ "gmaps", "socket" ], ( gmaps, socket ) ->
 				lat 	= place.geometry.location.lat()
 				lng 	= place.geometry.location.lng()
 
-				socket.query( latlng: [ lng, lat ], distance : 500  )
+				socket.query( latlng: [ lng, lat ], distance : document.getElementById( "distance" ).value || 999  )
 
 	init = ( options ) ->
 

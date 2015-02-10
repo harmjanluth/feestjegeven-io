@@ -17,14 +17,15 @@ exports.init = ( server ) ->
 
 			log.debug q
 
-			q.distance = q.distance || 1
-
 			datastore.find q, ( result ) ->
 
 				socket.emit "result", result
 
+		socket.on "getLocation", ( alias ) ->
 
+			datastore.getLocation alias, ( result ) ->
 
+				socket.emit "result", result
 
 	
 
